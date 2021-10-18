@@ -1,0 +1,63 @@
+,02,Loisel,Peter PanPan
+Tempête,03,Loisel,Peter Pan
+Mains Rouges,04,Loisel,Peter Pan
+La conque de Ramor,01,Loisel,La quête de l'oiseau du temps
+Le temple de l\oubli,02,Loisel,La quête de l'oiseau du temps
+Le Rige,03,Loisel,La quête de l'oiseau du temps
+L'oeuf des ténèbres,04,Loisel,La quête de l'oiseau du temps
+L'ami Javin,05,Loisel,La quête de l'oiseau du temps
+Le grimoire des dieux,06,Loisel,La quête de l'oiseau du temps
+La voie du Rige,07,Loisel,La quête de l'oiseau du temps
+Le chevalier Bragon,08,Loisel,La quête de l'oiseau du temps
+Kryll,10,Loisel,La quête de l'oiseau du temps
+Quelque part entre les ombres,01,Diaz Canales,BlackSad
+Artic-Nation,02,Diaz Canales,BlackSad
+Âme Rouge,03,Diaz Canales,BlackSad
+L'Enfer le silence,04,Diaz Canales,BlackSad
+Un ange trépasse,01,Warnant,SODA
+Lettres à Satan,02,Warnant,SODA
+Tu ne buteras point,03,Gazotti,SODA
+Dieu est mort ce soir,04,Gazotti,SODA
+Fureur chez les saints,05,Gazotti,SODA
+Confession express,06,Gazotti,SODA
+Lève toi et meurs,07,Gazotti,SODA
+Tuez en paix,08,Gazotti,SODA
+Et délivre nous du mal,09,Gazotti,SODA
+Dieu seul le sait,10,Gazotti,SODA
+Prières et balistique,11,Gazotti,SODA
+Code Apocalypse,12,Gazotti,SODA
+Résurrection,13,Gazotti,SODA
+A feu et à cendres,01,Morva,Sillage
+Collection privée,02,Morva,Sillage
+Engrenages,03,Morva,Sillage
+Le signe des démons,04,Morva,Sillage
+\J.VJ..\_,05,Morva,Sillage
+Q.H.I,07,Morva,Sillage
+Nature Humaine,08,Morva,Sillage
+,,,
+Retour de flammes,10,Morva,Sillage
+Monde flottant,11,Morva,Sillage
+Zone franche,12,Morva,Sillage
+Dérapage contrôlé,13,Morva,Sillage
+Liquidation Totale,14,Morva,Sillage
+Un donjon de trop,01,Trondheim,Donjon Parade
+Le sage du ghetto,02,Trondheim,Donjon Parade
+Le jour des crapauds,03,Trondheim,Donjon Parade
+Des fleurs et des marmots,04,Trondheim,Donjon Parade
+Technique Grogro,05,Trondheim,Donjon Parade
+Garderie pour petiots,06,Trondheim,Donjon Parade
+Plus ne m'est rien...,01,Yslaire,Sambrefdgdfg
+Je sais que tu viendras...,02,Yslaire,Sambre
+Révolution révolution...,03,Yslaire,Sambre
+Faut-il que nous mourions ensemble...,04,Yslaire,Sambre
+Maudit soit le fruit de ses entrailles,05,Yslaire,Sambre
+Coeur de canard,01,Trondheim,Donjon Zénith
+Le roi de la bagarre,02,Trondheim,Donjon Zénith
+La princesse des barbares,03,Trondheim,Donjon Zénith
+Sortilège et avatar,04,Trondheim,Donjon Zénith
+Un mariage à part,05,Trondheim,Donjon Zénith
+Retour en fanfare,06,Trondheim,Donjon Zénith
+Hors des remparts,07,Trondheim,Donjon Zénith
+En sa mémoire,08,Trondheim,Donjon Zénith
+,test,test,test
+,aze,aze,aze
