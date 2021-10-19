@@ -1,13 +1,14 @@
 <?php
     function getListBd(): array {
         $connexion = Connect_bdtk::getConnexion();
-        $results = $connexion->query("SELECT * FROM  bande_dessinee");
-        $results->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Bande_dessinee", array('isbn','	bande_dessinee_titre', 'bande_dessinee_tome', 'auteur_id', 'serie_id'));
+        $results = $connexion->query("SELECT b.isbn 'isbn', b.bande_dessinee_titre 'Titre', b.bande_dessinee_tome 'Tome', a.auteur_nom 'Auteur', s.serie_lib 'Serie'
+                                    FROM bande_dessinee b
+                                    JOIN auteur a ON b.auteur_id = a.auteur_id
+                                    JOIN serie s ON b.serie_id = s.serie_id");
+        $results->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Bande_dessinee", array('isbn', 'bande_dessinee_titre', '$bande_dessinee_tome', 'auteur_nom', 'serie_lib'));
         $resultats = $results->fetchAll();
-// var_dump($resultats);
         $results->closeCursor();
         Connect_bdtk::disconnect();
-// var_dump($resultats);
         return $resultats;
         }
 
@@ -18,7 +19,6 @@
         $resultats = $results->fetchAll();
         $results->closeCursor();
         Connect_bdtk::disconnect();
-// var_dump($resultats);
         return $resultats;
         }
     function getListSeries(): array {
@@ -28,7 +28,6 @@
         $resultats = $results->fetchAll();
         $results->closeCursor();
         Connect_bdtk::disconnect();
-// var_dump($resultats);
         return $resultats;
         }
 
@@ -37,26 +36,23 @@
         $listeAuteurs = getListAuteurs();
         $listeSeries = getListSeries();
 
-// var_dump($listeBDs);
         $tCibles = array();
             foreach($listeBDs as $bd) {
-                if (stristr($bd, $needle) ) {
+                if (stristr($bd->Titre, $needle) OR stristr($bd->Auteur, $needle) OR stristr($bd->Serie, $needle)) {
                     $tCibles[] = $bd;
                 }
             }
-            foreach ($listeAuteurs as $auteur) {
-                if (stristr($auteur, $needle)) {
-                    $tCibles[] = $auteur;
-                }
-            }
-            foreach ($listeSeries as $serie) {
-                if (stristr($serie, $needle)) {
-                    $tCibles[] = $serie;
-                }
-            }
+            // foreach ($listeAuteurs as $auteur) {
+            //     if (stristr($auteur, $needle)) {
+            //         $tCibles[] = $auteur;
+            //     }
+            // }
+            // foreach ($listeSeries as $serie) {
+            //     if (stristr($serie, $needle)) {
+            //         $tCibles[] = $serie;
+            //     }
+            // }
             return $tCibles;
-        
-        
     }
 
     function modifyBd($isbn, $titrebd, $tome, $auteur, $serie) {
@@ -79,5 +75,47 @@
         $connexion = Connect_bdtk::getConnexion();
         $delBd = $connexion->prepare($sql);
         $delBd->execute(array(':isbn'=>$isbn));
+    }
+
+    function getInfosModif($isbn) {
+        $connexion = Connect_bdtk::getConnexion();
+        $results = $connexion->query("SELECT b.isbn 'isbn', b.bande_dessinee_titre 'Titre', b.bande_dessinee_tome 'Tome', a.auteur_nom 'Auteur', s.serie_lib 'Serie'
+                                    FROM bande_dessinee b
+                                    JOIN auteur a ON b.auteur_id = a.auteur_id
+                                    JOIN serie s ON b.serie_id = s.serie_id 
+                                    WHERE b.isbn = '".$isbn."'");
+        $results->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Bande_dessinee", array('isbn', 'bande_dessinee_titre', '$bande_dessinee_tome', 'auteur_nom', 'serie_lib'));
+        $resultats = $results->fetch();
+        $results->closeCursor();
+        Connect_bdtk::disconnect();
+        return $resultats;
+    }
+
+    function getDetailsAuteur($auteur) {
+        $connexion = Connect_bdtk::getConnexion();
+        $results = $connexion->query("SELECT b.isbn 'isbn', b.bande_dessinee_titre 'Titre', b.bande_dessinee_tome 'Tome', s.serie_lib 'Serie'
+                                    FROM bande_dessinee b 
+                                    JOIN auteur a ON b.auteur_id = a.auteur_id
+                                    JOIN serie s ON b.serie_id = s.serie_id
+                                    WHERE a.auteur_id = '".$auteur."'");
+        $results->setFetchMode(PDO::FETCH_ASSOC);
+        $resultats = $results->fetchall();
+        $results->closeCursor();
+        Connect_bdtk::disconnect();
+        return $resultats;
+    }
+
+    function getDetailsSerie($serie) {
+        $connexion = Connect_bdtk::getConnexion();
+        $results = $connexion->query("SELECT b.isbn 'isbn', b.bande_dessinee_titre 'Titre', b.bande_dessinee_tome 'Tome', s.serie_lib 'Serie', a.auteur_nom 'Auteur'
+                                    FROM bande_dessinee b 
+                                    JOIN auteur a ON b.auteur_id = a.auteur_id
+                                    JOIN serie s ON b.serie_id = s.serie_id
+                                    WHERE s.serie_id = '".$serie."'");
+        $results->setFetchMode(PDO::FETCH_ASSOC);
+        $resultats = $results->fetchall();
+        $results->closeCursor();
+        Connect_bdtk::disconnect();
+        return $resultats;
     }
 ?>

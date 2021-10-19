@@ -2,21 +2,31 @@
     echo $h1;
     echo "<br />";
     if ($action === 'affichageBD') {
+        foreach ($listeAuteurs as $tAuteurs) {
+            $auteur = $tAuteurs->getAuteur_nom();
+                    }
+        foreach ($listeSeries as $tSeries) {
+            $serie = $tSeries->getSerie_lib();
+                    }
         foreach ($listeBDs as $tbd) {
-            echo $tbd;
+            echo "Titre: ".$tbd[0];
         }
     }
+
+
     if ($action === 'affichageAuteurs') {
         foreach ($listeAuteurs as $tAuteurs) {
-            echo $tAuteurs;
+echo $tAuteurs;
         }
     }
     
     if ($action === 'affichageSerie') {
         foreach ($listeSeries as $tSeries) {
-            echo $tSeries;
+        echo $tSeries;
         }
     }
+
+
 
 
     if ($action === 'search_result') {
@@ -43,7 +53,6 @@
                         }
         } else {
             foreach($liste as $tResults) {
-//var_dump($tResults);
                 echo $tResults;
             }
         }

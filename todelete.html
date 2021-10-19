@@ -1,0 +1,29 @@
+Tableau résultats
+<br>
+<table>
+    <thead>
+        <tr>
+            <th colspan="4" style="font-variant: small-caps; font-size: large;">
+                Liste des Bandes Dessinées
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="font-weight: bold;" >
+            <td>Titre</td>
+            <td>Tome</td>
+            <td>Auteur</td>
+            <td>Série</td>
+        </tr>
+    </tbody>
+</table>
+
+"<form action='index.php?action=details'>
+    <input type='submit' value='Détails'>
+    <input type='hidden' name='titrebd' value=".$bd->Titre." ">
+    <input type='hidden' name='tome' value=".$bd->Tome." ">
+    <input type='hidden' name='auteur' value=".$bd->Auteur." ">
+    <input type='hidden' name='serie' value=".$bd->Serie." ">
+</form>";
+
+<img src='couv/".$isbn.".jpg' alt='".$isbn."'>

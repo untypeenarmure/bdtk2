@@ -25,8 +25,7 @@
         }
 
         public function __toString() {
-            $message = "Référence Série: " .$this->getSerie_id(). 
-                        ". Nom de la Série: " .$this->getSerie_lib(). ". <br />";
+            $message = $this->getSerie_lib();
             return $message; 
         }
     }
